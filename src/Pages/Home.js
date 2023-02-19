@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import ExpCard from '../Components/Card/ExpCard';
 import HomeCard from '../Components/Card/HomeCard';
 import SearchForm from '../Components/Form/SearchForm';
@@ -22,13 +23,40 @@ const Home = () => {
         <SearchForm />
       </div>
 
-      <div className='flex-1'>
+      <div className='flex-1 mt-4'>
         <div>
-          <HomeCard />
+          <div className="flex px-4 justify-between">
+            <p className='text-xl font-bold'>Homes</p>
+            <Link to='/coming-soon'>
+              <p>See All</p>
+            </Link>
+          </div>
+          <div className='container pb-8 pt-2 mx-auto'>
+            <div className='flex flex-wrap justify-between px-4'>
+              {
+                [...Array(6)].map((_, i) => <HomeCard key={i} />)
+              }
+            </div>
+
+          </div>
         </div>
         <div>
-          <ExpCard />
+          <div className="flex px-4 justify-between">
+            <p className='text-xl font-bold'>Experiences</p>
+            <Link to='/coming-soon'>
+              <p>See All</p>
+            </Link>
+          </div>
+          <div className='container pb-8 pt-2 mx-auto'>
+            <div className='flex flex-wrap justify-between px-4'>
+              {
+                allExp.slice(0, 4).map((exp, i) => <ExpCard key={i} exp={exp} />)
+              }
+            </div>
+
+          </div>
         </div>
+
       </div>
 
     </div>

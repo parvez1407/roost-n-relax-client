@@ -22,13 +22,13 @@ const HomeCard = () => {
         <h2 className='text-gray-900 title-font text-lg font-medium'>
           Huge Apartment with 4 bedrooms
         </h2>
-        <p className='mt-1'>$34 per person</p>
+        <p className='mt-1'>$ 34 per person</p>
         <div className='flex mt-1'>
-          <StarIcon className='h3 w-3 text-green-500' />
-          <StarIcon className='h3 w-3 text-green-500' />
-          <StarIcon className='h3 w-3 text-green-500' />
-          <StarIcon className='h3 w-3 text-green-500' />
-          <StarIcon className='h3 w-3 text-green-500' /> <span>64</span>
+          <StarIcon className='h3 w-3 text-indigo-500' />
+          <StarIcon className='h3 w-3 text-indigo-500' />
+          <StarIcon className='h3 w-3 text-indigo-500' />
+          <StarIcon className='h3 w-3 text-indigo-500' />
+          <StarIcon className='h3 w-3 text-indigo-500' /> <span className='ml-2'> 64</span>
         </div>
       </div>
     </div>
