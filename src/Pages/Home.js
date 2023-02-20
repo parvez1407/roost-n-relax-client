@@ -9,10 +9,12 @@ const Home = () => {
   const [allExp, setAllExp] = useState([]);
 
   useEffect(() => {
+    setLoading(true)
     fetch('expdata.json')
       .then(res => res.json())
       .then(data => {
         setAllExp(data)
+        setLoading(false)
       })
   }, [])
 
@@ -40,22 +42,24 @@ const Home = () => {
 
           </div>
         </div>
-        <div>
-          <div className="flex px-4 justify-between">
-            <p className='text-xl font-bold'>Experiences</p>
-            <Link to='/coming-soon'>
-              <p>See All</p>
-            </Link>
-          </div>
-          <div className='container pb-8 pt-2 mx-auto'>
-            <div className='flex flex-wrap justify-between px-4'>
-              {
-                allExp.slice(0, 4).map((exp, i) => <ExpCard key={i} exp={exp} />)
-              }
+        {
+          loading ? <Spinner /> : <div>
+            <div className="flex px-4 justify-between">
+              <p className='text-xl font-bold'>Experiences</p>
+              <Link to='/coming-soon'>
+                <p>See All</p>
+              </Link>
             </div>
+            <div className='container pb-8 pt-2 mx-auto'>
+              <div className='flex flex-wrap justify-between px-4'>
+                {
+                  allExp.slice(0, 4).map((exp, i) => <ExpCard key={i} exp={exp} />)
+                }
+              </div>
 
+            </div>
           </div>
-        </div>
+        }
 
       </div>
 
