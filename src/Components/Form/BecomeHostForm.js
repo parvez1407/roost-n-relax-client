@@ -1,4 +1,5 @@
 import React from 'react'
+import PrimaryButton from '../Button/PrimaryButton'
 
 const BecomeHostForm = ({ handleSubmit }) => {
     return (
@@ -14,7 +15,7 @@ const BecomeHostForm = ({ handleSubmit }) => {
                                 Location
                             </label>
                             <input
-                                className='w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50'
+                                className='w-full px-4 py-3 text-gray-800 border border-indigo-300 focus:outline-indigo-500 rounded-md bg-indigo-50'
                                 name='location'
                                 id='location'
                                 type='text'
@@ -28,7 +29,7 @@ const BecomeHostForm = ({ handleSubmit }) => {
                         <div className='flex space-x-4 items-center'>
                             <label
                                 htmlFor='image'
-                                className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-green-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:border-white hover:text-white'
+                                className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-indigo-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-400 hover:border-white hover:text-white'
                             >
                                 <input
                                     type='file'
@@ -49,12 +50,12 @@ const BecomeHostForm = ({ handleSubmit }) => {
                             </label>
                         </div>
 
-                        <button
+                        <PrimaryButton
                             type='submit'
-                            className='block w-full p-3 text-center font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-emerald-500 to-lime-500 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none'
+                            classes='block w-full p-3 text-center rounded-md font-medium text-white items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform hover:text-gray-700 focus:shadow-outline focus:outline-none'
                         >
                             Submit Request
-                        </button>
+                        </PrimaryButton>
                     </form>
                 </div>
             </div>

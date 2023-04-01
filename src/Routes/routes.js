@@ -17,6 +17,7 @@ import BecomeAHost from '../Pages/Dashboard/BecomeAHost'
 import AllUsers from '../Pages/Dashboard/AllUsers'
 import AllBookings from '../Pages/Dashboard/AllBookings'
 import AddHome from '../Pages/AddHome'
+import AllHome from '../Pages/AllHome'
 
 
 
@@ -39,6 +40,12 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />,
+      },
+      {
+        path: 'all-homes',
+        element: (
+          <AllHome />
+        ),
       },
       {
         path: '/coming-soon',

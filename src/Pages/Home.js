@@ -29,7 +29,7 @@ const Home = () => {
         <div>
           <div className="flex px-4 justify-between">
             <p className='text-xl font-bold'>Homes</p>
-            <Link to='/coming-soon'>
+            <Link to='/all-homes'>
               <p>See All</p>
             </Link>
           </div>
@@ -46,7 +46,7 @@ const Home = () => {
           loading ? <Spinner /> : <div>
             <div className="flex px-4 justify-between">
               <p className='text-xl font-bold'>Experiences</p>
-              <Link to='/coming-soon'>
+              <Link to='/all-homes'>
                 <p>See All</p>
               </Link>
             </div>

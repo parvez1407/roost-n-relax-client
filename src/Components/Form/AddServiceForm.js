@@ -1,13 +1,27 @@
 import { CalendarIcon } from '@heroicons/react/20/solid'
 import React from 'react'
 import DatePicker from 'react-datepicker'
+import SmallSpinner from '../Spinner/SmallSpinner'
 
-const AddServiceForm = () => {
+const AddServiceForm = ({
+  handleSubmit,
+  arrivalDate,
+  setArrivalDate,
+  departureDate,
+  setDepartureDate,
+  loading,
+  handleImageChange,
+  preview,
+  uploadButtonText,
+}) => {
   return (
     <>
       <div className='flex justify-center mt-6'>
         <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>
-          <form className='space-y-6 ng-untouched ng-pristine ng-valid'>
+          <form
+            onSubmit={handleSubmit}
+            className='space-y-6 ng-untouched ng-pristine ng-valid'
+          >
             <div className='space-y-1 text-sm'>
               <label htmlFor='location' className='block text-gray-600'>
                 Location
@@ -39,7 +53,11 @@ const AddServiceForm = () => {
               <div className='shadow-md rounded-md my-2 p-3 flex justify-between items-center'>
                 <div>
                   <p className='block text-sm text-gray-500'>From</p>
-                  <DatePicker selected={new Date()} className='w-2/3' />
+                  <DatePicker
+                    selected={arrivalDate}
+                    onChange={date => setArrivalDate(date)}
+                    className='w-2/3'
+                  />
                 </div>
 
                 <CalendarIcon className='h5 w-5' />
@@ -47,7 +65,11 @@ const AddServiceForm = () => {
               <div className='shadow-md rounded-md my-2 p-3 flex justify-between items-center'>
                 <div>
                   <p className='block text-sm text-gray-500'>To</p>
-                  <DatePicker selected={new Date()} className='w-2/3' />
+                  <DatePicker
+                    selected={departureDate}
+                    onChange={date => setDepartureDate(date)}
+                    className='w-2/3'
+                  />
                 </div>
 
                 <CalendarIcon className='h5 w-5' />
@@ -119,14 +141,19 @@ const AddServiceForm = () => {
                 htmlFor='image'
                 className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-green-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:border-white hover:text-white'
               >
+                {uploadButtonText}
                 <input
                   type='file'
+                  onChange={event => handleImageChange(event.target.files[0])}
                   name='image'
                   id='image'
                   accept='image/*'
                   hidden
                 />
               </label>
+              {preview && (
+                <img src={preview} className='w-16 h-16' alt='preview_img' />
+              )}
             </div>
 
             <div className='space-y-1 text-sm'>
@@ -145,7 +172,7 @@ const AddServiceForm = () => {
               type='submit'
               className='block w-full p-3 text-center font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-emerald-500 to-lime-500 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none'
             >
-              Save & Continue
+              {loading ? <SmallSpinner /> : 'Save & Continue'}
             </button>
           </form>
         </div>
